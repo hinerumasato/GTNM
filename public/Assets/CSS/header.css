@@ -120,6 +120,8 @@
 
 .user-link, .cart-store {
     margin-top: 8px;
+    position: relative;
+    cursor: pointer;
 }
 
 .user-link a, .cart-store a{
@@ -225,4 +227,41 @@
 
 .product-item:hover a {
     color: var(--menu-color);
+}
+
+.header_right-cart {
+    cursor: pointer;
+}
+
+.header_right-cart:hover .cart-info {
+    display: block;
+}
+
+.cart-info {
+    display: none;
+    position: absolute;
+    background-color: #fff;
+    right: -100%;
+    top: 40px;
+    padding: 24px;
+    border: 1px solid #ccc;
+    width: 400px;
+}
+
+.quantity-btn {
+    padding: 4px 10px;
+    background: #fff;
+    cursor: pointer;
+    border: solid 1px #ccc;
+    outline: none;
+}
+
+.cart-info::before {
+    content: "";
+    width: 100%;
+    position: absolute;
+    height: 40px;
+    background-color: transparent;
+    top: -28px;
+    left: 0;
 }
