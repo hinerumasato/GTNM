@@ -1,4 +1,5 @@
 import { getProducts } from "./productData.js";
+import { userId } from "./header.js";
 const products = await getProducts("https://shoes-json.herokuapp.com/products");
 let isNeedToAdd = true;
 let count = 0;
@@ -52,7 +53,7 @@ const gridItems = itemField.querySelectorAll('.grid-item');
 gridItems.forEach(gridItem => {
     gridItem.onclick = () => {
         const itemId = gridItem.getAttribute('id-item');
-        const url = `./productInfo.html?id=${itemId}`;
+        const url = `./productInfo.html?product-id=${itemId}&user-id=${userId}`;
         gridItem.querySelector('a').setAttribute('href', url);
         console.log(gridItem);
     }
