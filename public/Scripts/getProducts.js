@@ -5,13 +5,13 @@ let isNeedToAdd = true;
 let count = 0;
 const itemField = document.querySelector('.container_content-right_items');
 products.forEach(product => {
-
+    let quantity = (screen.width >= 740) ? 4 : 2;
     if(isNeedToAdd) {
         let row = document.createElement('div');
         row.classList.add("row")  
         row.classList.add("item-row");
         row.innerHTML += `
-            <div class="grid-item c-3" id-item=${product.id}>
+            <div class="grid-item c-3 m-6" id-item=${product.id}>
                 <div class="products_item_wrap">
                     <a href="#"><img class="products_item_img"
                             src="${product.image}"></a>
@@ -31,7 +31,7 @@ products.forEach(product => {
     else {
         let row = document.querySelectorAll('.row.item-row')[document.querySelectorAll('.row.item-row').length - 1];
         row.innerHTML += `
-            <div class="grid-item c-3" id-item=${product.id}>
+            <div class="grid-item c-3 m-6" id-item=${product.id}>
                 <div class="products_item_wrap">
                     <a href="#"><img class="products_item_img"
                             src="${product.image}"></a>
@@ -45,8 +45,9 @@ products.forEach(product => {
             </div>
         `
     }
+    
     count++;
-    if(count % 4 == 0) isNeedToAdd = !isNeedToAdd;
+    if(count % quantity == 0) isNeedToAdd = !isNeedToAdd;
 });
 
 const gridItems = itemField.querySelectorAll('.grid-item');
