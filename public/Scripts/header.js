@@ -27,7 +27,7 @@ else {
     navMenuLink[8].setAttribute("href", `./contact.html?user-id=${user.id}`);
     userLink.innerHTML = `<a>Xin chào ${user.username}</a>`
 
-    if(buyProducts != undefined) {
+    if (buyProducts != undefined) {
         buyProducts.forEach(buyProduct => {
             cartInfo.innerHTML += `
             
@@ -83,12 +83,19 @@ else {
         </div>`
     }
     else {
-        cartInfo.innerHTML += 
-        `<div class="empty-cart">
+        cartInfo.innerHTML +=
+            `<div class="empty-cart">
             Bạn chưa mua gì cả
         </div>`
     }
 }
 
+const listBtn = document.querySelector('.mobile-header_info_nav');
+listBtn.onclick = () => {
+    const mobileHeaderList = document.querySelector('.mobile-header_info_nav_list');
+    mobileHeaderList.classList.toggle('active');
+    console.log(mobileHeaderList)
+}
+
 const userId = (user == undefined) ? 0 : user.id;
-export {userId};
+export { userId };

@@ -280,11 +280,15 @@
     display: block;
     margin: 0 auto;
 }
-.mobile-header_info {
+
+.mobile-header_wrap {
     height: 38px;
     background-color: var(--menu-color);
     line-height: 38px;
     color: #fff;
+}
+
+.mobile-header_info {
     display: flex !important;
     justify-content: space-between;
     position: relative;
@@ -310,6 +314,10 @@
     z-index: 9999;
     top: 100%;
     display: none;
+}
+
+.active {
+    display: block !important;
 }
 
 .mobile-header_info_nav_item {
