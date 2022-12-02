@@ -30,8 +30,8 @@
 }
 
 .products_item_img {
-  width: 74%;
-  height: 294px;
+  width: 70%;
+  max-height: 300px;
   display: block;
   margin: 0 auto;
 }
