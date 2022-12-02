@@ -58,16 +58,29 @@
 @media(min-width: 740px) and (max-width: 1023px) {
 
 
+  
   html {
 
     display: flex;
-    height: 100%;
+    display: block;
+    
+  }
+
+  .input_width{
+    width: 700px;
+    margin: 6px 0px 26px 0px;
+  }
+
+  .font_size {
+
+    margin-left: 16px;
   }
 
   .dang_ky_center {
     position: relative;
     display: block;
     height: 500px;
+    margin: 26px 0px 16px 16px;
   }
   .input-field {
 
@@ -91,6 +104,7 @@
 
     position: absolute;
     top: 148px;
+    
   }
 
   .input-field-name {
@@ -114,14 +128,23 @@
 
   }
 
-  .input_size1 {
-    width: 100%;
-    margin-top: 16px;
-  }
+ 
 
   .grid {
 
     margin-left: 16px;
   }
 }
+
+
+  @media (max-width: 740px) {
+
+    html {
+
+      display: block;
+      height: 100%;
+    }
+  } 
+
+
 
