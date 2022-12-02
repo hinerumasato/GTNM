@@ -163,12 +163,22 @@ h4 {
     footer .top_footer { 
         width: 100%;
         display: block;
+        margin: 0;
+       padding: 15px 0px 15px 0px;
+
     }
     footer .top_footer .c-4 {
        width: 100%;
-       padding-left: 15px;
-       padding-right: 15px;
-       /* margin-right: 100px; */
+     padding-left: 15px;
+     padding-right: 15px;
+     height: 39.6px;
+    }
+    footer .top_footer .c-4 h4 {
+        width: 100%;
+        margin: 10px 0px 10px 0px;
+    }
+    footer .top_footer .c-4 .footer_list {
+        display: none;
     }
     footer .mid_footer {
         padding: 10px 0 20px;
