@@ -31,6 +31,7 @@
 
 .products_item_img {
   width: 74%;
+  height: 294px;
   display: block;
   margin: 0 auto;
 }
@@ -61,6 +62,8 @@ a {
 
 .products_item_infor {
   font-size: 14px;
+  height: 16px;
+  overflow: hidden;
   /* padding: 16px; */
 }
 
