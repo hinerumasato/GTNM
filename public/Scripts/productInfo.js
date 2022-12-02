@@ -79,11 +79,18 @@ addStoreBtn.onclick = async () => {
     const user = await getUsers(userUrl);
     const boughtProduct = await getProducts(productUrl);
     let userBuyProducts = user[0]["buy-products"];
-    userBuyProducts = userBuyProducts.concat(boughtProduct);
-    
-    let newUser = user[0];
-    newUser["buy-products"] = userBuyProducts;
-    await updateUser(userId, newUser);
+
+    if(userBuyProducts != undefined) {
+        userBuyProducts = userBuyProducts.concat(boughtProduct);
+        let newUser = user[0];
+        newUser["buy-products"] = userBuyProducts;
+        await updateUser(userId, newUser);
+    }
+    else {
+        let newUser = user[0];
+        newUser["buy-products"] = boughtProduct;
+        await updateUser(userId, newUser);
+    }
 
     window.location.replace(`./productInfo.html?product-id=${productId}&user-id=${userId}`)
 }
