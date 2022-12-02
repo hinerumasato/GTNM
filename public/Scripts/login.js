@@ -8,7 +8,7 @@ loginBtn.onclick = async () => {
     const password = document.querySelector('.password').value;
     users.forEach(user => {
         if(user.username == username && user.password == password) {
-            window.location.replace(`./index.html?id=${user.id}`);
+            window.location.replace(`./index.html?user-id=${user.id}`);
         }
         else count++;
     });

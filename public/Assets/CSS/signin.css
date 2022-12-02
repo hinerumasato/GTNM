@@ -54,3 +54,74 @@
 .input-field input {
   padding: 8px;
 }
+
+@media(min-width: 740px) and (max-width: 1023px) {
+
+
+  html {
+
+    display: flex;
+    height: 100%;
+  }
+
+  .dang_ky_center {
+    position: relative;
+    display: block;
+    height: 500px;
+  }
+  .input-field {
+
+    margin-top: 6px;
+  }
+
+  .button {
+    position: absolute;
+    display: block;
+    top: 448px;
+  }
+
+  .input-field-point {
+
+    position: absolute;
+
+    top: 70px;
+  }
+
+  .input-field-email {
+
+    position: absolute;
+    top: 148px;
+  }
+
+  .input-field-name {
+
+    position: absolute;
+
+    top: 300px;
+  }
+
+  .input-field-sdt {
+
+    position: absolute;
+
+    top: 225px;
+  }
+
+  .input-field-password {
+
+    position: absolute;
+    top: 380px;
+
+  }
+
+  .input_size1 {
+    width: 100%;
+    margin-top: 16px;
+  }
+
+  .grid {
+
+    margin-left: 16px;
+  }
+}
+
