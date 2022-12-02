@@ -331,7 +331,11 @@
         display: block;
     }
 
-    .header-wrap,.slider-wrap {
+    .header-wrap {
         display: none;
+    }
+
+    .slider {
+        width: 100% !important;
     }
 }

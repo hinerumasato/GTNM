@@ -25,3 +25,14 @@
     display: flex;
 }
 
+.mobile_nav {
+    display: none;
+    margin-top: 30px;
+}
+
+@media only screen and (max-width: 740px) {
+    .mobile_nav {
+        display: block;
+    }
+}
+
