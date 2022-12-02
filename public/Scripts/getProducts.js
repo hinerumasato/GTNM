@@ -1,6 +1,8 @@
 import { getProducts } from "./productData.js";
 import { userId } from "./header.js";
-const products = await getProducts("https://shoes-json.herokuapp.com/products");
+import { _DATA_URL_ } from "./Utils/utils.js";
+const products = await getProducts(`${_DATA_URL_}/products`);
+console.log(products);
 let isNeedToAdd = true;
 let count = 0;
 const itemField = document.querySelector('.container_content-right_items');

@@ -1,10 +1,11 @@
-import { pushUsers, getUsers } from './userData.js'
+import { pushUsers, getUsers } from './userData.js';
+import { _DATA_URL_ } from './Utils/utils.js';
 
 
 const signinBtn = document.querySelector('.signin-btn');
 
 signinBtn.onclick = async () => {
-    let users = await getUsers("https://shoes-json.herokuapp.com/users")
+    let users = await getUsers(`${_DATA_URL_}/users`)
     console.log(users);
     let isUsed = false;
     const username = document.querySelector('.username').value;

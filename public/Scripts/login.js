@@ -1,9 +1,10 @@
 import { getUsers } from "./userData.js";
+import { _DATA_URL_ } from "./Utils/utils.js";
 
 const loginBtn = document.querySelector('.login-btn');
 loginBtn.onclick = async () => {
     let count = 0;
-    const users = await getUsers("https://shoes-json.herokuapp.com/users");
+    const users = await getUsers(`${_DATA_URL_}/users`);
     const username = document.querySelector('.username').value;
     const password = document.querySelector('.password').value;
     users.forEach(user => {

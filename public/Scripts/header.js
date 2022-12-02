@@ -1,7 +1,7 @@
-import { getParameterByName } from "./Utils/utils.js";
+import { getParameterByName, _DATA_URL_ } from "./Utils/utils.js";
 import { getUsers } from "./userData.js";
 
-let user = await getUsers(`https://shoes-json.herokuapp.com/users?id=${getParameterByName("user-id")}`);
+let user = await getUsers(`${_DATA_URL_}/users?id=${getParameterByName("user-id")}`);
 user = user[0];
 console.log(user);
 const userLink = document.querySelector(".user-link");

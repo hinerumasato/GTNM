@@ -1,8 +1,8 @@
 import { getProducts } from "./productData.js";
-import { getParameterByName } from "./Utils/utils.js"
+import { getParameterByName, _DATA_URL_ } from "./Utils/utils.js"
 import { getUsers, updateUser } from "./userData.js"
 
-let selectedProduct = await getProducts(`https://shoes-json.herokuapp.com/products?id=${getParameterByName('product-id')}`);
+let selectedProduct = await getProducts(`${_DATA_URL_}/products?id=${getParameterByName('product-id')}`);
 selectedProduct = selectedProduct[0];
 
 const productContainerWrap = document.querySelector('.product_container_wrap');
@@ -74,8 +74,8 @@ const addStoreBtn = document.querySelector('.add-to-store-btn');
 addStoreBtn.onclick = async () => {
     const userId = getParameterByName("user-id");
     const productId = getParameterByName("product-id");
-    const userUrl = `https://shoes-json.herokuapp.com/users?id=${userId}`;
-    const productUrl = `https://shoes-json.herokuapp.com/products?id=${productId}`;
+    const userUrl = `${_DATA_URL_}/users?id=${userId}`;
+    const productUrl = `${_DATA_URL_}/products?id=${productId}`;
     const user = await getUsers(userUrl);
     const boughtProduct = await getProducts(productUrl);
     let userBuyProducts = user[0]["buy-products"];

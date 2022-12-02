@@ -1,10 +1,12 @@
+import { _DATA_URL_ } from "./Utils/utils.js";
+
 async function getProducts(url) {
     const response = await fetch(url);
     return response.json();
 }
 
 async function postProducts(data) {
-    const response = await fetch("https://shoes-json.herokuapp.com/products", {
+    const response = await fetch(`${_DATA_URL_}/products`, {
         method: 'POST',
         headers: {
             'Accept': 'application/json',
@@ -16,7 +18,7 @@ async function postProducts(data) {
 }
 
 async function deleteProduct(id) {
-    let url = "https://shoes-json.herokuapp.com/products/" + id;
+    let url = `${_DATA_URL_}/products/${id}`;
     const response = await fetch(url, {
         method: 'DELETE',
         headers: {
@@ -28,7 +30,7 @@ async function deleteProduct(id) {
 }
 
 async function updateProduct(id, data) {
-    let url = "https://shoes-json.herokuapp.com/products/" + id;
+    let url = `${_DATA_URL_}/products/${id}`;
     const response = await fetch(url, {
         method: 'PUT',
         headers: {

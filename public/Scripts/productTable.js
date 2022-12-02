@@ -1,5 +1,6 @@
 import { getProducts, deleteProduct } from "./productData.js";
-let products = await getProducts("https://shoes-json.herokuapp.com/products");
+import { _DATA_URL_ } from "./Utils/utils.js";
+let products = await getProducts(`${_DATA_URL_}/products`);
 const col = document.querySelector('tbody');
 const selectAll = document.querySelector('.select-all');
 const deleteProductBtn = document.querySelector('.delete-product-btn');
