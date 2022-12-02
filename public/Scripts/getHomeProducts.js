@@ -2,7 +2,7 @@ import { getProducts } from "./productData.js";
 import { userId } from "./header.js";
 import { _DATA_URL_ } from "./Utils/utils.js";
 
-const _RENDER_PRODUCT_AMOUNT = 40;
+const _RENDER_PRODUCT_AMOUNT = 16;
 
 const products = await getProducts(`${_DATA_URL_}/products?_limit=${_RENDER_PRODUCT_AMOUNT}`);
 console.log(products);
