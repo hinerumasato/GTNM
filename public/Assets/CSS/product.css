@@ -131,3 +131,12 @@ a {
 .pagination-item.active .pagination-item_link {
   color: #fff;
 }
+
+.sale-product-field,.popular-product-field {
+  margin-top: 30px;
+}
+
+.container_content-right_banner img {
+  width: 100%;
+  margin-top: 30px;
+}
