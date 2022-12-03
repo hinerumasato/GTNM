@@ -36,5 +36,9 @@
     .mobile_nav {
         display: block;
     }
+
+    .slider-img {
+        height: 100%;
+    }
 }
 
