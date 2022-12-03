@@ -1,5 +1,6 @@
 import { getParameterByName, _DATA_URL_ } from "./Utils/utils.js";
 import { getProducts } from "./productData.js";
+import { userId } from "./header.js";
 
 const _RENDER_PRODUCT_AMOUNT = 8;
 
