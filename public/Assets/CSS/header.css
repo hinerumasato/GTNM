@@ -99,6 +99,8 @@
     background: var(--menu-color);
     border: none;
     position: relative;
+    cursor: pointer;
+    transition: .3s;
 }
 
 .header_right {

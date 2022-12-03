@@ -81,6 +81,10 @@ html {
   margin: 33px 0px 18px 0px;
 }
 
+.dang_nhap_right {
+  width: 50%;
+}
+
   
 @media(min-width: 740px) and (max-width: 1023px) {
 
@@ -155,6 +159,10 @@ html {
   .email {
 
     margin-top: 30px;
+  }
+
+  .dang_nhap_lefp {
+    width: 100%;
   }
 }
 
