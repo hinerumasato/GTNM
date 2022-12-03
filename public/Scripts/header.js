@@ -121,4 +121,13 @@ searchBtn.onclick = async () => {
     }
 }
 
+const input = document.querySelector('.header_center-search input');
+
+input.addEventListener("keypress", (e) => {
+    if(e.key == "Enter") {
+        e.preventDefault();
+        searchBtn.click();
+    }
+})
+
 export { userId };
