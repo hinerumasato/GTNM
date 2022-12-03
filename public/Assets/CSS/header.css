@@ -99,6 +99,8 @@
     background: var(--menu-color);
     border: none;
     position: relative;
+    cursor: pointer;
+    transition: .3s;
 }
 
 .header_right {
@@ -213,7 +215,7 @@
 
 .product-item {
     width: 100%;
-    border-bottom: solid 1px #ccc;
+    border-bottom: thin dashed #ebebeb;
     padding: 0 8px;
     height: 44px;
     line-height: 44px;
@@ -331,7 +333,11 @@
         display: block;
     }
 
-    .header-wrap,.slider-wrap {
+    .header-wrap {
         display: none;
+    }
+
+    .slider {
+        width: 100% !important;
     }
 }

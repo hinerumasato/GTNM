@@ -23,5 +23,17 @@
 .container_content {
     width: 100%;
     display: flex;
+    justify-content: space-between;
+}
+
+.mobile_nav {
+    display: none;
+    margin-top: 30px;
+}
+
+@media only screen and (max-width: 740px) {
+    .mobile_nav {
+        display: block;
+    }
 }
 

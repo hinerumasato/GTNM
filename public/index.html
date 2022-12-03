@@ -254,7 +254,7 @@
                 </section>
             </div>
 
-            <div class="grid container_content-right m-12">
+            <div class="container_content-right m-12">
                 <div class="container_content-right_new-product">
                     <div class="main_title">
                         <h2>CÁC SẢN PHẨM</h2>
@@ -265,20 +265,99 @@
                     </div>
                 </div>
             </div>
+
+            
+        </div>
+        <div class="mobile_nav">
+            <div class="product-nav-left">
+                <h2 class="product-nav_title">
+
+                    <i id="product-nav-icon" class="fa-solid fa-bars"></i>
+                    Danh mục sản phẩm
+                </h2>
+
+                <ul class="product-nav-list product-nav">
+                    <li class="product-nav-item">Bộ sưu tập mới</li>
+                    <li class="product-nav-item">
+                        Giày thời trang nam
+                        <i class="fa-solid fa-caret-right" id="product-nav-item-icon"></i>
+                        <ul class="product-nav-lists">
+                            <li class="product-item1"><a href="">Giày da</a></li>
+                            <li class="product-item1"><a href="">Giày vải</a></li>
+                            <li class="product-item1"><a href="">Giày Converse</a></li>
+                        </ul>
+
+                    </li>
+                    <li class="product-nav-item">Giày thời trang nữ</li>
+                    <li class="product-nav-item">Giày mùa hè</li>
+                    <li class="product-nav-item">Giày công sở</li>
+                    <li class="product-nav-item">Giày thể thao</li>
+                </ul>
+            </div>
+
+            <section class="section__content">
+                <div class="title">
+                    <h2 class="title__style">HỖ TRỢ TRỰC TUYẾN</h2>
+                </div>
+                <div class="content">
+                    <div class="item">
+                        <div class="icon">
+                            <div class="img">
+                                <img
+                                    src="//bizweb.dktcdn.net/100/091/132/themes/877468/assets/item_2_image.png?1663744425866" />
+                            </div>
+                        </div>
+                        <div class="item__content">
+                            <div class="item__content-title"><b>Tư vấn bán hàng 1 </b></div>
+                            <div class="item__content-desc">
+                                Mrs.Dung: <b>(04) 3786 8904</b>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="icon">
+                            <div class="img">
+                                <img
+                                    src="//bizweb.dktcdn.net/100/091/132/themes/877468/assets/item_2_image.png?1663744425866" />
+                            </div>
+                        </div>
+                        <div class="item__content">
+                            <div class="item__content-title"><b>Tư vấn bán hàng 2</b></div>
+                            <div class="item__content-desc">
+                                Mrs.Tuan: <b>(04) 3786 8904</b>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="icon">
+                            <div class="img">
+                                <img
+                                    src="//bizweb.dktcdn.net/100/091/132/themes/877468/assets/item_2_image.png?1663744425866" />
+                            </div>
+                        </div>
+                        <div class="item__content">
+                            <div class="item__content-title"><b>Email liên hệ</b></div>
+                            <div class="item__content-desc">
+                                <b>hcmuafedu@gmail.com</b>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
         </div>
     </div>
     <div w3-include-html="./footter.html"></div>
     <script>
         const slider = document.querySelector('.slider');
-        let transform = -50;
+        let transform = (screen.width >= 740) ? -50 : -100;
         setInterval(() => {
             let temp = slider;
             slider.style.transform = `translateX(calc(${transform}%)`;
-            transform = (transform < 0) ? 0 : -50;
+            transform = (transform < 0) ? 0 : (screen.width >= 740) ? -50 : -100;
         }, 7000);
     </script>
     <script>includeHTML();</script>
-    <script type="module" src="./Scripts/getProducts.js"></script>
+    <script type="module" src="./Scripts/getHomeProducts.js"></script>
     <script type="module" src="./Scripts/header.js"></script>
 </body>
 
