@@ -79,6 +79,11 @@
     border: solid 1px var(--menu-color);
 }
 
+.header_center-search input:focus {
+    outline: none !important;
+    border: solid 1px var(--menu-color);
+}
+
 .header_center-search-btn::before {
     content: "";
     width: 0;
