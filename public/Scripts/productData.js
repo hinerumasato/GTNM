@@ -2,7 +2,7 @@ import { _DATA_URL_ } from "./Utils/utils.js";
 
 async function getProducts(url) {
     const response = await fetch(url);
-    return response.json();
+    return await response.json();
 }
 
 async function postProducts(data) {
@@ -14,7 +14,7 @@ async function postProducts(data) {
         },
         body: JSON.stringify(data)
     })
-    return response.json();
+    return await response.json();
 }
 
 async function deleteProduct(id) {
@@ -26,7 +26,7 @@ async function deleteProduct(id) {
             'Content-Type': 'application/json'
         },
     })
-    return response.json();
+    return await response.json();
 }
 
 async function updateProduct(id, data) {
@@ -39,7 +39,7 @@ async function updateProduct(id, data) {
         },
         body: JSON.stringify(data)
     })
-    return response.json();
+    return await response.json();
 }
 
 export { getProducts, postProducts, deleteProduct, updateProduct };
