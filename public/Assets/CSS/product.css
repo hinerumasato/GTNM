@@ -48,10 +48,6 @@
   font-weight: bold;
 }
 
-.products_item_price,.products_item_infor {
-  /* padding: 0 16px;  */
-}
-
 .products_item_wrap a {
   display: block;
   width: 100%;
@@ -130,4 +126,13 @@ a {
 
 .pagination-item.active .pagination-item_link {
   color: #fff;
+}
+
+.sale-product-field,.popular-product-field {
+  margin-top: 30px;
+}
+
+.container_content-right_banner img {
+  width: 100%;
+  margin-top: 30px;
 }
