@@ -1,6 +1,6 @@
-import { postProducts, getProducts, updateProduct } from "./productData.js";
-import { getParameterByName } from "./Utils/utils.js"
-let selectedProduct = await getProducts(`https://shoes-json.herokuapp.com/products?id=${getParameterByName('id')}`);
+import { getProducts, updateProduct } from "./productData.js";
+import { getParameterByName, _DATA_URL_ } from "./Utils/utils.js"
+let selectedProduct = await getProducts(`${_DATA_URL_}/products?id=${getParameterByName('id')}`);
 const updateBtn = document.querySelector('.update-product-btn');
 
 selectedProduct = selectedProduct[0];

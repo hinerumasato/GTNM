@@ -5,14 +5,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-
     <link rel="stylesheet" href="./Assets/CSS/header.css">
     <link rel="stylesheet" href="./Assets/CSS/footter.css">
     <link rel="stylesheet" href="./Assets/CSS/base.css">
     <link rel="stylesheet" href="./Assets/Icon/fontawesome-free-6.2.0-web/css/all.css">
     <link rel="stylesheet" href="./Assets/CSS/grid.css">
+    <link rel="icon" href="./Assets/Icon/title-icon.jpg" type="image/x-icon">
 
+    <link rel="stylesheet" href="./Assets/CSS/index.css">
+    <link rel="stylesheet" href="./Assets/CSS/product.css">
+    <link rel="stylesheet" href="./Assets/CSS/supportNav.css">
+    <link rel="stylesheet" href="./Assets/CSS/productNav.css">
     <link rel="stylesheet" href="./Assets/CSS/news.css">
     <script src="./Scripts/include.js"></script>
 </head>
@@ -157,113 +160,188 @@
         </div>
     </header>
 
-    <div class="grid list-news">
-
-        <div class="list-news-title">
-            <h2>Tin tức</h2>
+    <div class="grid container">
+        <div class="container_content">
+            <div class="container_content-left m-0">
+                <div class="product-nav-left">
+                    <h2 class="product-nav_title">
+                        <i id="product-nav-icon" class="fa-solid fa-bars"></i>
+                        Danh mục sản phẩm
+                    </h2>
+                    <ul class="product-nav-list product-nav">
+                        <li class="product-nav-item">Bộ sưu tập mới</li>
+                        <li class="product-nav-item">
+                            Giày thời trang nam
+                            <i class="fa-solid fa-caret-right" id="product-nav-item-icon"></i>
+                            <ul class="product-nav-lists">
+                                <li class="product-item1"><a href="">Giày da</a></li>
+                                <li class="product-item1"><a href="">Giày vải</a></li>
+                                <li class="product-item1"><a href="">Giày Converse</a></li>
+                            </ul>
+                        </li>
+                        <li class="product-nav-item">Giày thời trang nữ</li>
+                        <li class="product-nav-item">Giày mùa hè</li>
+                        <li class="product-nav-item">Giày công sở</li>
+                        <li class="product-nav-item">Giày thể thao</li>
+                    </ul>
+                </div>
+                <section class="section__content">
+                    <div class="title">
+                        <h2 class="title__style">HỖ TRỢ TRỰC TUYẾN</h2>
+                    </div>
+                    <div class="content">
+                        <div class="item">
+                            <div class="icon">
+                                <div class="img">
+                                    <img
+                                        src="//bizweb.dktcdn.net/100/091/132/themes/877468/assets/item_2_image.png?1663744425866" />
+                                </div>
+                            </div>
+                            <div class="item__content">
+                                <div class="item__content-title"><b>Tư vấn bán hàng 1 </b></div>
+                                <div class="item__content-desc">
+                                    Mrs.Dung: <b>(04) 3786 8904</b>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="icon">
+                                <div class="img">
+                                    <img
+                                        src="//bizweb.dktcdn.net/100/091/132/themes/877468/assets/item_2_image.png?1663744425866" />
+                                </div>
+                            </div>
+                            <div class="item__content">
+                                <div class="item__content-title"><b>Tư vấn bán hàng 2</b></div>
+                                <div class="item__content-desc">
+                                    Mrs.Tuan: <b>(04) 3786 8904</b>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="icon">
+                                <div class="img">
+                                    <img
+                                        src="//bizweb.dktcdn.net/100/091/132/themes/877468/assets/item_2_image.png?1663744425866" />
+                                </div>
+                            </div>
+                            <div class="item__content">
+                                <div class="item__content-title"><b>Email liên hệ</b></div>
+                                <div class="item__content-desc">
+                                    <b>hcmuafedu@gmail.com</b>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <div class="container_content-right container_content_news m-12">
+                <div class="list-news">
+                    <div class="list-news-title">
+                        <h2>Tin tức</h2>
+                    </div>
+                    <article class="new-item">
+                        <div class="item-img">
+                            <a href="./choose_shoe_news.html">
+                                <img class="img" src="https://bizweb.dktcdn.net/100/091/132/articles/anh2.png?v=1466158653610" alt="">
+                            </a>
+                        </div>
+                        <div class = "blog-item">
+                            <h3 class="blog-item-name">
+                                <a href="./choose_shoe_news.html">Chọn giày thể thao cho bạn gái nữ tính</a>
+                            </h3>
+                            <div class = "post-details">
+                                <span>
+                                    <i class="fa fa-user"></i>
+                                    Trần Thắng Lợi
+                                </span>
+                                <span>
+                                    <i class="fa fa-calendar"></i>
+                                    17/11/2022
+                                </span>
+                            </div>
+                            <div class="blog-item-text">
+                                     Giày thể thao đang là phụ kiện không thể thiếu trong tủ giày dép của các bạn gái.
+                                 Những đôi giày thể thao với thiết kế đa dạng, nhiều màu sắc thường được phái đẹp lựa chọn.
+                                 Những đôi giày thể thao mang phong cách trẻ trung.
+                            </div>
+                            <div class="view-more">
+                                <a class="btn" href="./choose_shoe_news.html">
+                                    Đọc thêm
+                                    <i class="fa fa-long-arrow-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="new-item">
+                        <div class="item-img">
+                            <a href="">
+                                <img class="img" src="https://bizweb.dktcdn.net/100/091/132/articles/anh1.png?v=1466157783620" alt="">
+                            </a>
+                        </div>
+                        <div class = "blog-item">
+                            <h3 class="blog-item-name">
+                                <a href="">Giới trẻ sốt rần rần với giày Converse Chuck II</a>
+                            </h3>
+                            <div class = "post-details">
+                                <span>
+                                    <i class="fa fa-user"></i>
+                                    Trần Thắng Lợi
+                                </span>
+                                <span>
+                                    <i class="fa fa-calendar"></i>
+                                    18/11/2022
+                                </span>
+                            </div>
+                            <div class="blog-item-text">
+                                Chuck II, "hậu duệ" của mẫu giày Chuck Taylor 98 năm tuổi đình đám đang là
+                                từ khóa "hot" nhất trong từ điển của các bạn trẻ Việt mê giày những ngày qua. 28/7 vừa qua,
+                                 thương hiệu Converse đã chính thức ra mắt Chuck II.
+                            </div>
+                            <div class="view-more">
+                                <a class="btn" href="">
+                                    Đọc thêm
+                                    <i class="fa fa-long-arrow-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="new-item">
+                        <div class="item-img">
+                            <a href="">
+                                <img class="img" src="https://bizweb.dktcdn.net/100/091/132/articles/anh3.png?v=1466157559277" alt="">
+                            </a>
+                        </div>
+                        <div class = "blog-item">
+                            <h3 class="blog-item-name">
+                                <a href="">'Bí kíp' phân biệt giày Converse thật hay giả</a>
+        
+                            </h3>
+                            <div class = "post-details">
+                                <span>
+                                    <i class="fa fa-user"></i>
+                                    Trần Thắng Lợi
+                                </span>
+                                <span>
+                                    <i class="fa fa-calendar"></i>
+                                    19/11/2022
+                                </span>
+                            </div>
+                            <div class="blog-item-text">
+                                Giày Converse thật thường có giá khá cao, xứng tầm với thương hiệu và chất lượng của nó. Hiện nay trên thị trường giày,
+                                một đôi Converse hàng hiệu chính hãng thường có giá dao động từ 500.000 đến xấp xỉ 1.500.000.
+                            </div>
+                            <div class="view-more">
+                                <a class="btn" href="">
+                                    Đọc thêm
+                                    <i class="fa fa-long-arrow-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
         </div>
-
-        <article class="new-item">
-            <div class="item-img">
-                <a href="./choose_shoe_news.html">
-                    <img class="img" src="https://bizweb.dktcdn.net/100/091/132/articles/anh2.png?v=1466158653610" alt="">
-                </a>    
-            </div>
-            <div class = "blog-item">
-                <h3 class="blog-item-name">
-                    <a href="./choose_shoe_news.html">Chọn giày thể thao cho bạn gái nữ tính</a>
-                </h3>
-                <div class = "post-details">
-                    <span>
-                        <i class="fa fa-user"></i>
-                        Trần Thắng Lợi
-                    </span>
-                    <span>
-                        <i class="fa fa-calendar"></i>
-                        17/11/2022
-                    </span>
-                </div>
-                <div class="blog-item-text">
-					 Giày thể thao đang là phụ kiện không thể thiếu trong tủ giày dép của các bạn gái. 
-                     Những đôi giày thể thao với thiết kế đa dạng, nhiều màu sắc thường được phái đẹp lựa chọn. 
-                     Những đôi giày thể thao mang phong cách trẻ trung. 			
-                </div>
-                <div class="view-more">
-                    <a class="btn" href="./choose_shoe_news.html">
-                        Đọc thêm
-                        <i class="fa fa-long-arrow-right"></i>
-                    </a>
-                </div>
-            </div>
-        </article>
-
-        <article class="new-item">
-            <div class="item-img">
-                <a href="">
-                    <img class="img" src="https://bizweb.dktcdn.net/100/091/132/articles/anh1.png?v=1466157783620" alt="">
-                </a>
-            </div>
-            <div class = "blog-item">
-                <h3 class="blog-item-name">
-                    <a href="">Giới trẻ sốt rần rần với giày Converse Chuck II</a>
-                </h3>
-                <div class = "post-details">
-                    <span>
-                        <i class="fa fa-user"></i>
-                        Trần Thắng Lợi
-                    </span>
-                    <span>
-                        <i class="fa fa-calendar"></i>
-                        18/11/2022
-                    </span>
-                </div>
-                <div class="blog-item-text">
-                    Chuck II, "hậu duệ" của mẫu giày Chuck Taylor 98 năm tuổi đình đám đang là 
-                    từ khóa "hot" nhất trong từ điển của các bạn trẻ Việt mê giày những ngày qua. 28/7 vừa qua,
-                     thương hiệu Converse đã chính thức ra mắt Chuck II. 		
-                </div>
-                <div class="view-more">
-                    <a class="btn" href="">
-                        Đọc thêm
-                        <i class="fa fa-long-arrow-right"></i>
-                    </a>
-                </div>
-            </div>
-        </article>
-
-        <article class="new-item">
-            <div class="item-img">
-                <a href="">
-                    <img class="img" src="https://bizweb.dktcdn.net/100/091/132/articles/anh3.png?v=1466157559277" alt="">
-                </a>
-            </div>
-            <div class = "blog-item">
-                <h3 class="blog-item-name">
-                    <a href="">'Bí kíp' phân biệt giày Converse thật hay giả</a>
-                    
-                </h3>
-                <div class = "post-details">
-                    <span>
-                        <i class="fa fa-user"></i>
-                        Trần Thắng Lợi
-                    </span>
-                    <span>
-                        <i class="fa fa-calendar"></i>
-                        19/11/2022
-                    </span>
-                </div>
-                <div class="blog-item-text">
-                    Giày Converse thật thường có giá khá cao, xứng tầm với thương hiệu và chất lượng của nó. Hiện nay trên thị trường giày, 
-                    một đôi Converse hàng hiệu chính hãng thường có giá dao động từ 500.000 đến xấp xỉ 1.500.000. 	
-                </div>
-                <div class="view-more">
-                    <a class="btn" href="">
-                        Đọc thêm
-                        <i class="fa fa-long-arrow-right"></i>
-                    </a>
-                </div>
-            </div>
-        </article> 
     </div>
     <div w3-include-html="./footter.html"></div>
     <script>includeHTML();</script>

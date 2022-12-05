@@ -1,7 +1,7 @@
-import { getParameterByName } from "./Utils/utils.js";
+import { getParameterByName, _DATA_URL_ } from "./Utils/utils.js";
 import { getUsers } from "./userData.js";
 
-let user = await getUsers(`https://shoes-json.herokuapp.com/users?id=${getParameterByName("user-id")}`);
+let user = await getUsers(`${_DATA_URL_}/users?id=${getParameterByName("user-id")}`);
 user = user[0];
 console.log(user);
 const userLink = document.querySelector(".user-link");
@@ -14,6 +14,13 @@ if (user == undefined) {
             Bạn cần đăng nhập để xem giỏ hàng
         </div>
     `
+
+    const navMenuLink = document.querySelectorAll('.nav_menu-link');
+    navMenuLink[0].setAttribute("href", `./index.html`);
+    navMenuLink[1].setAttribute("href", `./about-us.html`);
+    navMenuLink[2].setAttribute("href", `./product.html`);
+    navMenuLink[5].setAttribute("href", `./news.html`);
+    navMenuLink[8].setAttribute("href", `./contact.html`);
 }
 
 else {
@@ -22,7 +29,7 @@ else {
 
     navMenuLink[0].setAttribute("href", `./index.html?user-id=${user.id}`);
     navMenuLink[1].setAttribute("href", `./about-us.html?user-id=${user.id}`);
-    navMenuLink[2].setAttribute("href", `./index.html?user-id=${user.id}`);
+    navMenuLink[2].setAttribute("href", `./product.html?user-id=${user.id}`);
     navMenuLink[5].setAttribute("href", `./news.html?user-id=${user.id}`);
     navMenuLink[8].setAttribute("href", `./contact.html?user-id=${user.id}`);
     userLink.innerHTML = `<a>Xin chào ${user.username}</a>`
@@ -98,4 +105,29 @@ listBtn.onclick = () => {
 }
 
 const userId = (user == undefined) ? 0 : user.id;
+
+const searchBtn = document.querySelector('.header_center-search-btn');
+searchBtn.onclick = async () => {
+    const valueSearch = document.querySelector('.header_center-search input').value;
+    let queries = window.location.href.split('?')[1];
+    if(getParameterByName("search") == undefined) {
+        let url = `./product.html?${queries}&search=${valueSearch}`;
+        window.location.replace(url); 
+    }
+    else {
+        let newQueries = queries.substring(0, queries.indexOf("&search"));
+        let newUrl = `./product.html?${newQueries}&search=${valueSearch}`;
+        window.location.replace(newUrl);
+    }
+}
+
+const input = document.querySelector('.header_center-search input');
+
+input.addEventListener("keypress", (e) => {
+    if(e.key == "Enter") {
+        e.preventDefault();
+        searchBtn.click();
+    }
+})
+
 export { userId };

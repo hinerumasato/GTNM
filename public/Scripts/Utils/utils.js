@@ -7,4 +7,6 @@ function getParameterByName(name, url = window.location.href) {
     return decodeURIComponent(results[2].replace(/\+/g, ' '));
 }
 
-export { getParameterByName };
+const _DATA_URL_ = "https://shoes-db.onrender.com";
+
+export { getParameterByName, _DATA_URL_ };
