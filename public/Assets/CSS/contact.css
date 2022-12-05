@@ -81,3 +81,112 @@
   margin-top: 8px;
 }
 
+
+@media(min-width: 740px) and (max-width: 1023px) {
+
+  html {
+
+    display: block;
+  }
+
+  .title-head {
+
+    margin-left: 16px;
+  }
+
+  .head {
+
+    display: block;
+    position: relative;
+    height: 700px;
+    margin: 0px 16px;
+  }
+
+  .head_left {
+
+    position: absolute;
+
+    top: 300px;
+  }
+
+  .head_right {
+
+    position: absolute;
+    top: 20px;
+    width: 718px;
+    height: 296px;
+    padding-left: 0px;
+    
+
+  }
+
+  .input-feild {
+
+    width: 710px;
+  }
+
+  
+  .input-feild h4 {
+   
+    padding: 0px;
+   
+}
+
+  .input-feild input {
+
+    margin-top: 8px;
+  }
+
+  .button {
+
+    margin-top: 12px;
+  }
+
+}
+
+@media (max-width: 740px) {
+
+  html {
+
+    position: relative;
+
+    
+
+  }
+
+  .head_right {
+
+    position: absolute;
+
+    top: 230px;
+    width: 100%;
+  }
+
+  .head_left {
+
+    position: relative;
+
+    top: 150px;
+
+    height: 600px;
+
+  }
+
+  
+  .button {
+
+    margin-left: 12px;
+  }
+
+  .input-feild input {
+
+    margin-left: 10px;
+  }
+
+  .input_head {
+
+    margin-left: 10px;
+    width:100%;
+  }
+}
+
