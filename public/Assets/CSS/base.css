@@ -20,3 +20,18 @@ body {
     margin-bottom: 20px;
     z-index: 9999;
 }
+
+.container_content {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.container_content-right {
+    height: fit-content;
+    width: 77%;
+}
+
+.container_content-left {
+    
+}

@@ -20,7 +20,9 @@ let searchName = getParameterByName("search");
 
 if (searchName != undefined) {
     databaseProducts.forEach(databaseProduct => {
-        if (databaseProduct.name.toLowerCase().includes(searchName.toLowerCase()))
+        if (databaseProduct.name.toLowerCase().includes(searchName.toLowerCase())
+            || databaseProduct.type.toLowerCase().includes(searchName.toLocaleLowerCase())
+        )
             products.push(databaseProduct);
     });
 }

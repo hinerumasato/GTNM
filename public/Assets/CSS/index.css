@@ -10,14 +10,6 @@
     transition: transform linear 0.5s;
     z-index: -9999;
     position: relative;
-
-}
-
-
-.container_content {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
 }
 
 .mobile_nav {
@@ -41,4 +33,3 @@
         height: 100%;
     }
 }
-
