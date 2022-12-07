@@ -23,6 +23,6 @@ async function renderItem(itemField, elements, html,...rest) {
     });
 }
 
-const _DATA_URL_ = "https://shoes-db.onrender.com/";
+const _DATA_URL_ = "https://shoes-db.onrender.com";
 
 export { getParameterByName, _DATA_URL_, renderItem };
