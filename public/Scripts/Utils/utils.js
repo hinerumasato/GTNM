@@ -23,6 +23,6 @@ async function renderItem(itemField, elements, html,...rest) {
     });
 }
 
-const _DATA_URL_ = "http://localhost:3000";
+const _DATA_URL_ = "https://shoes-db.onrender.com/";
 
 export { getParameterByName, _DATA_URL_, renderItem };
