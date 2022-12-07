@@ -127,6 +127,12 @@ a {
   margin-top: 30px;
 }
 
+.container_content-right_banner:hover {
+  opacity: .7;
+  transition: .3s;
+  cursor: pointer;
+}
+
 .container_content-right_banner img {
   width: 100%;
   margin-top: 30px;

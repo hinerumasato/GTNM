@@ -41,6 +41,10 @@
 .item {
     display: flex;
     justify-content: unset;
+    margin-top: 30px;
+}
+
+.item:first-child {
     margin-top: 15px;
 }
 

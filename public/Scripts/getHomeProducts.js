@@ -70,5 +70,5 @@ async function renderProducts(itemField, startIndex, amount) {
 }
 
 await renderProducts(newProductField, 0 ,4);
-await renderProducts(saleProductField, 4, 4);
-await renderProducts(popularProductField, 20, 4);
+await renderProducts(saleProductField, 4, 8);
+await renderProducts(popularProductField, 20, 8);

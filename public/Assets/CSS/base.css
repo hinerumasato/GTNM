@@ -29,5 +29,9 @@ body {
 
 .container_content-right {
     height: fit-content;
-    width: 77%;
+    width: 72%;
+}
+
+.container_content-left {
+    width: 22%;
 }
