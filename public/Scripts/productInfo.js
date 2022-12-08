@@ -7,10 +7,10 @@ selectedProduct = selectedProduct[0];
 
 const productContainerWrap = document.querySelector('.product_container_wrap');
 let html = `
-            <div class="product_container_left c-4">
+            <div class="product_container_left c-4 m-12">
                 <img src="${selectedProduct.image}" alt="" class="product_container_left-img">
             </div>
-            <div class="product_container_mid c-6" >
+            <div class="product_container_mid c-6 m-12" >
                 <div class="product_container_mid-infor">
                     <h2>
                         ${selectedProduct.name}
