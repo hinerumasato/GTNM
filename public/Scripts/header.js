@@ -1,11 +1,33 @@
 import { getParameterByName, _DATA_URL_ } from "./Utils/utils.js";
 import { getUsers } from "./userData.js";
+import { getProducts } from "./productData.js";
 
 let user = await getUsers(`${_DATA_URL_}/users?id=${getParameterByName("user-id")}`);
 user = user[0];
-console.log(user);
+
+const products = await getProducts(`${_DATA_URL_}/products`);
 const userLink = document.querySelector(".user-link");
+const navMenuLink = document.querySelectorAll('.nav_menu-link');
 const cartInfo = document.querySelector(".cart-info");
+const productList = document.querySelector(".product-list")
+console.log(navMenuLink)
+const productTypeSet = new Set();
+
+products.forEach(product => {
+    productTypeSet.add(product.type.toLowerCase())
+})
+
+productTypeSet.forEach(productName => {
+    productList.innerHTML += `
+        <li class="product-item">
+            <a href="./product.html?search=${productName}&user-id=${getParameterByName("user-id")}">
+                ${productName}
+            </a>
+        </li>
+    `
+})
+
+
 
 if (user == undefined) {
     userLink.innerHTML = `<a href="./login.html">Đăng nhập</a> / <a href="./signin.html">Đăng ký</a>`;
@@ -15,23 +37,21 @@ if (user == undefined) {
         </div>
     `
 
-    const navMenuLink = document.querySelectorAll('.nav_menu-link');
     navMenuLink[0].setAttribute("href", `./index.html`);
     navMenuLink[1].setAttribute("href", `./about-us.html`);
     navMenuLink[2].setAttribute("href", `./product.html`);
-    navMenuLink[5].setAttribute("href", `./news.html`);
-    navMenuLink[8].setAttribute("href", `./contact.html`);
+    navMenuLink[3].setAttribute("href", `./news.html`);
+    navMenuLink[4].setAttribute("href", `./contact.html`);
 }
 
 else {
     const buyProducts = user["buy-products"];
-    const navMenuLink = document.querySelectorAll('.nav_menu-link');
 
     navMenuLink[0].setAttribute("href", `./index.html?user-id=${user.id}`);
     navMenuLink[1].setAttribute("href", `./about-us.html?user-id=${user.id}`);
     navMenuLink[2].setAttribute("href", `./product.html?user-id=${user.id}`);
-    navMenuLink[5].setAttribute("href", `./news.html?user-id=${user.id}`);
-    navMenuLink[8].setAttribute("href", `./contact.html?user-id=${user.id}`);
+    navMenuLink[3].setAttribute("href", `./news.html?user-id=${user.id}`);
+    navMenuLink[4].setAttribute("href", `./contact.html?user-id=${user.id}`);
     userLink.innerHTML = `<a>Xin chào ${user.username}</a>`
 
     if (buyProducts != undefined) {
@@ -110,9 +130,9 @@ const searchBtn = document.querySelector('.header_center-search-btn');
 searchBtn.onclick = async () => {
     const valueSearch = document.querySelector('.header_center-search input').value;
     let queries = window.location.href.split('?')[1];
-    if(getParameterByName("search") == undefined) {
+    if (getParameterByName("search") == undefined) {
         let url = `./product.html?${queries}&search=${valueSearch}`;
-        window.location.replace(url); 
+        window.location.replace(url);
     }
     else {
         let newQueries = queries.substring(0, queries.indexOf("&search"));
@@ -124,7 +144,7 @@ searchBtn.onclick = async () => {
 const input = document.querySelector('.header_center-search input');
 
 input.addEventListener("keypress", (e) => {
-    if(e.key == "Enter") {
+    if (e.key == "Enter") {
         e.preventDefault();
         searchBtn.click();
     }
