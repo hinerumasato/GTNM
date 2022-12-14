@@ -1,11 +1,59 @@
 import { getParameterByName, _DATA_URL_ } from "./Utils/utils.js";
-import { getUsers } from "./userData.js";
+import { getUsers, updateUser } from "./userData.js";
+import { getProducts, updateProduct } from "./productData.js";
 
 let user = await getUsers(`${_DATA_URL_}/users?id=${getParameterByName("user-id")}`);
 user = user[0];
-console.log(user);
+
+const products = await getProducts(`${_DATA_URL_}/products`);
 const userLink = document.querySelector(".user-link");
+const navMenuLink = document.querySelectorAll('.nav_menu-link');
 const cartInfo = document.querySelector(".cart-info");
+const productList = document.querySelector(".product-list")
+const productTypeSet = new Set();
+
+function formatNumber(str) {
+    let result = "";
+    for(let i = 0; i < str.length; i++)
+        if(str[i] >= '0' && str[i] <= '9')
+            result += str[i];
+    return result;
+}
+
+function splitNumber(number) {
+    let temp = String(number);
+    let result = "";
+    let count = 0;
+
+    while(count < temp.length) {
+        result = temp[temp.length - 1 - count] + result;
+        count++;
+        if(count % 3 == 0 && count != 0) {
+            result = "." + result;
+        }
+    }
+
+    if(count % 3 == 0)
+        result = result.substring(1, result.length);
+
+    return result;
+}
+
+products.forEach(product => {
+    productTypeSet.add(product.type.toLowerCase())
+})
+
+productTypeSet.forEach(productName => {
+    productList.innerHTML += `
+        <li class="product-item">
+            <a href="./product.html?search=${productName}&user-id=${getParameterByName("user-id")}">
+                ${productName}
+            </a>
+        </li>
+    `
+})
+
+
 
 if (user == undefined) {
     userLink.innerHTML = `<a href="./login.html">Đăng nhập</a> / <a href="./signin.html">Đăng ký</a>`;
@@ -15,30 +63,30 @@ if (user == undefined) {
         </div>
     `
 
-    const navMenuLink = document.querySelectorAll('.nav_menu-link');
     navMenuLink[0].setAttribute("href", `./index.html`);
     navMenuLink[1].setAttribute("href", `./about-us.html`);
     navMenuLink[2].setAttribute("href", `./product.html`);
-    navMenuLink[5].setAttribute("href", `./news.html`);
-    navMenuLink[8].setAttribute("href", `./contact.html`);
+    navMenuLink[3].setAttribute("href", `./news.html`);
+    navMenuLink[4].setAttribute("href", `./contact.html`);
 }
 
 else {
     const buyProducts = user["buy-products"];
-    const navMenuLink = document.querySelectorAll('.nav_menu-link');
 
     navMenuLink[0].setAttribute("href", `./index.html?user-id=${user.id}`);
     navMenuLink[1].setAttribute("href", `./about-us.html?user-id=${user.id}`);
     navMenuLink[2].setAttribute("href", `./product.html?user-id=${user.id}`);
-    navMenuLink[5].setAttribute("href", `./news.html?user-id=${user.id}`);
-    navMenuLink[8].setAttribute("href", `./contact.html?user-id=${user.id}`);
-    userLink.innerHTML = `<a>Xin chào ${user.username}</a>`
+    navMenuLink[3].setAttribute("href", `./news.html?user-id=${user.id}`);
+    navMenuLink[4].setAttribute("href", `./contact.html?user-id=${user.id}`);
+    userLink.innerHTML = `<a>Xin chào ${user.name}</a>`
 
-    if (buyProducts != undefined) {
+    if (buyProducts != undefined && buyProducts.length != 0) {
+        let sum = 0;
         buyProducts.forEach(buyProduct => {
+            sum += parseInt(formatNumber(buyProduct.price));
             cartInfo.innerHTML += `
             
-            <div class="cart-item" style="display: flex; width: 100%; gap: 12px">
+            <div class="cart-item" style="display: flex; width: 100%; gap: 12px"}>
                 <div>
                     <img width="120px"
                         src="${buyProduct.image}" />
@@ -54,9 +102,7 @@ else {
                 </div>
         
                 <div>
-                    <a href="https://facebook.com" target="_blank">
-                        <i class="fa fa-trash" aria-hidden="true"></i>
-                    </a>
+                    <i class="fa fa-trash" aria-hidden="true" productId=${buyProduct.id}></i>
                 </div>
             </div> `
         });
@@ -68,7 +114,7 @@ else {
         padding-bottom: 16px;
         ">
             <span>Tổng cộng: </span>
-            <span style="color: var(--menu-color); font-weight: bold;">1.200.000đ</span>
+            <span style="color: var(--menu-color); font-weight: bold;">${splitNumber(sum)}đ</span>
         </div>
         <div style="
         display: grid;
@@ -92,12 +138,26 @@ else {
     else {
         cartInfo.innerHTML +=
             `<div class="empty-cart">
-            Bạn chưa mua gì cả
+            Bạn chưa thêm sản phẩm nào trong giỏ hàng
         </div>`
     }
 }
 
 const listBtn = document.querySelector('.mobile-header_info_nav');
+const deleteCartProductBtns = document.querySelectorAll(".fa.fa-trash");
+deleteCartProductBtns.forEach((btn, index) => {
+    const products = user["buy-products"];
+    const newProducts = [];
+    btn.onclick = async () => {
+        for(let i = 0; i < index; i++)
+            newProducts.push(products[i]);
+        for(let i = index + 1; i < products.length; i++)
+            newProducts.push(products[i]);
+        user["buy-products"] = newProducts;
+        await updateUser(getParameterByName("user-id"), user);
+    }
+
+})
 listBtn.onclick = () => {
     const mobileHeaderList = document.querySelector('.mobile-header_info_nav_list');
     mobileHeaderList.classList.toggle('active');
@@ -110,9 +170,9 @@ const searchBtn = document.querySelector('.header_center-search-btn');
 searchBtn.onclick = async () => {
     const valueSearch = document.querySelector('.header_center-search input').value;
     let queries = window.location.href.split('?')[1];
-    if(getParameterByName("search") == undefined) {
+    if (getParameterByName("search") == undefined) {
         let url = `./product.html?${queries}&search=${valueSearch}`;
-        window.location.replace(url); 
+        window.location.replace(url);
     }
     else {
         let newQueries = queries.substring(0, queries.indexOf("&search"));
@@ -124,7 +184,7 @@ searchBtn.onclick = async () => {
 const input = document.querySelector('.header_center-search input');
 
 input.addEventListener("keypress", (e) => {
-    if(e.key == "Enter") {
+    if (e.key == "Enter") {
         e.preventDefault();
         searchBtn.click();
     }

@@ -5,10 +5,13 @@ const loginBtn = document.querySelector('.login-btn');
 loginBtn.onclick = async () => {
     let count = 0;
     const users = await getUsers(`${_DATA_URL_}/users`);
-    const username = document.querySelector('.username').value;
+    const email = document.querySelector('.email-input').value;
     const password = document.querySelector('.password').value;
+
+    
     users.forEach(user => {
-        if(user.username == username && user.password == password) {
+        console.log(user.email)
+        if(user.email == email && user.password == password) {
             window.location.replace(`./index.html?user-id=${user.id}`);
         }
         else count++;

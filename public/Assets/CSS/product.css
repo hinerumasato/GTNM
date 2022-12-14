@@ -72,11 +72,6 @@ a {
   /* margin-top: 24px; */
 }
 
-.container_content-right {
-  height: fit-content;
-  width: 77%;
-}
-
 .container_content-right_notification {
   width: 100%;
   height: 55px;
@@ -130,6 +125,12 @@ a {
 
 .sale-product-field,.popular-product-field {
   margin-top: 30px;
+}
+
+.container_content-right_banner:hover {
+  opacity: .7;
+  transition: .3s;
+  cursor: pointer;
 }
 
 .container_content-right_banner img {

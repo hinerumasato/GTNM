@@ -7,6 +7,25 @@ function getParameterByName(name, url = window.location.href) {
     return decodeURIComponent(results[2].replace(/\+/g, ' '));
 }
 
-const _DATA_URL_ = "https://shoes-db.onrender.com";
+function setCharAt(str, index, length, chr) {
+    if(index > str.length-1) return str;
+    return str.substring(0,index) + chr + str.substring(index + length);
+}
 
-export { getParameterByName, _DATA_URL_ };
+
+async function renderItem(itemField, elements, html,...rest) {
+    // elements = Array(elements);
+    if(!Array.isArray(elements)) elements = Array(elements);
+    elements.forEach(element => {
+        let temp = html;
+        for(let key of rest) {
+            temp = setCharAt(temp, temp.indexOf("undefined"), 9, element[key]);
+        }
+        itemField.innerHTML += temp;
+    });
+}
+
+const _DATA_URL_ = "https://big-shoes-database.onrender.com/";
+// const _DATA_URL_ = "https://big-shoes-database.onrender.com";
+
+export { getParameterByName, _DATA_URL_, renderItem };

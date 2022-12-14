@@ -6,24 +6,40 @@ const signinBtn = document.querySelector('.signin-btn');
 
 signinBtn.onclick = async () => {
     let users = await getUsers(`${_DATA_URL_}/users`)
-    console.log(users);
     let isUsed = false;
-    const username = document.querySelector('.username').value;
+    const email = document.querySelector('.email').value;
     const password = document.querySelector('.password').value;
+    const firstName = document.querySelector('.first-name').value;
+    const name = document.querySelector('.name').value;
 
-    users.forEach(user => {
-        if(user.username == username) {
-            alert("Tên đăng nhập đã có người sử dụng");
-            isUsed = true;
-            return;
+    console.log(name);
+
+    const phoneNumber = document.querySelector('.phone-number').value;
+
+    console.log({email, password, firstName, name, phoneNumber})
+
+    if(!email || !password || !firstName || !name || !phoneNumber) {
+        alert("Chưa nhập đủ dữ liệu");
+    }
+
+    else {
+        users.forEach(user => {
+            if(user.username == email) {
+                alert("Email đã có người sử dụng");
+                isUsed = true;
+                return;
+            }
+        })
+        if(!isUsed) {
+            let newUser = {};
+            newUser.email = email;
+            newUser.password = password;
+            newUser.firstName = firstName;
+            newUser.name = name;
+            newUser.phoneNumber = phoneNumber;
+            await pushUsers(newUser);
+            alert("Đăng ký thành công");
+            window.location.replace("./login.html");
         }
-    })
-    if(!isUsed) {
-        let newUser = {};
-        newUser.username = username;
-        newUser.password = password;
-        pushUsers(newUser);
-        alert("Đăng ký thành công");
-        window.location.replace("./login.html");
     }
 }

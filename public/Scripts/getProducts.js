@@ -2,7 +2,7 @@ import { getParameterByName, _DATA_URL_ } from "./Utils/utils.js";
 import { getProducts } from "./productData.js";
 import { userId } from "./header.js";
 
-const _RENDER_PRODUCT_AMOUNT = 8;
+const _RENDER_PRODUCT_AMOUNT = 12;
 
 let url = (getParameterByName("search") == undefined) ? `${_DATA_URL_}/products?_page=${getParameterByName("page")}&_limit=${_RENDER_PRODUCT_AMOUNT}`
     : `${_DATA_URL_}/products?`;
@@ -20,7 +20,9 @@ let searchName = getParameterByName("search");
 
 if (searchName != undefined) {
     databaseProducts.forEach(databaseProduct => {
-        if (databaseProduct.name.toLowerCase().includes(searchName.toLowerCase()))
+        if (databaseProduct.name.toLowerCase().includes(searchName.toLowerCase())
+            || databaseProduct.type.toLowerCase().includes(searchName.toLocaleLowerCase())
+        )
             products.push(databaseProduct);
     });
 }

@@ -2,8 +2,7 @@ import { getProducts } from "./productData.js";
 import { userId } from "./header.js";
 import { _DATA_URL_ } from "./Utils/utils.js";
 
-const products = await getProducts(`${_DATA_URL_}/products?`);
-console.log(products);
+const products = await getProducts(`${_DATA_URL_}/products`);
 const newProductField = document.querySelector('.new-product-field');
 const saleProductField = document.querySelector('.sale-product-field');
 const popularProductField = document.querySelector('.popular-product-field');
@@ -70,5 +69,5 @@ async function renderProducts(itemField, startIndex, amount) {
 }
 
 await renderProducts(newProductField, 0 ,4);
-await renderProducts(saleProductField, 4, 4);
-await renderProducts(popularProductField, 20, 4);
+await renderProducts(saleProductField, 4, 8);
+await renderProducts(popularProductField, 20, 8);
