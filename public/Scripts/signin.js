@@ -7,14 +7,11 @@ const signinBtn = document.querySelector('.signin-btn');
 signinBtn.onclick = async () => {
     let users = await getUsers(`${_DATA_URL_}/users`)
     let isUsed = false;
-    const email = document.querySelector('.email').value;
-    const password = document.querySelector('.password').value;
-    const firstName = document.querySelector('.first-name').value;
-    const name = document.querySelector('.name').value;
-
-    console.log(name);
-
-    const phoneNumber = document.querySelector('.phone-number').value;
+    const email         = document.querySelector('.email').value;
+    const password      = document.querySelector('.password').value;
+    const firstName     = document.querySelector('.first-name').value;
+    const name          = document.querySelector('.name').value;
+    const phoneNumber   = document.querySelector('.phone-number').value;
 
     console.log({email, password, firstName, name, phoneNumber})
 
@@ -37,7 +34,7 @@ signinBtn.onclick = async () => {
             newUser.firstName = firstName;
             newUser.name = name;
             newUser.phoneNumber = phoneNumber;
-            await pushUsers(newUser);
+            pushUsers(newUser);
             alert("Đăng ký thành công");
             window.location.replace("./login.html");
         }

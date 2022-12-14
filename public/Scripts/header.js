@@ -1,6 +1,6 @@
 import { getParameterByName, _DATA_URL_ } from "./Utils/utils.js";
 import { getUsers, updateUser } from "./userData.js";
-import { getProducts, updateProduct } from "./productData.js";
+import { getProducts } from "./productData.js";
 
 let user = await getUsers(`${_DATA_URL_}/users?id=${getParameterByName("user-id")}`);
 user = user[0];
@@ -78,7 +78,10 @@ else {
     navMenuLink[2].setAttribute("href", `./product.html?user-id=${user.id}`);
     navMenuLink[3].setAttribute("href", `./news.html?user-id=${user.id}`);
     navMenuLink[4].setAttribute("href", `./contact.html?user-id=${user.id}`);
-    userLink.innerHTML = `<a>Xin chào ${user.name}</a>`
+    userLink.innerHTML += `
+        <a>Xin chào ${user.name}</a>
+        <a href="./index.html" style="display: block;">Đăng xuất</a>
+    `
 
     if (buyProducts != undefined && buyProducts.length != 0) {
         let sum = 0;
