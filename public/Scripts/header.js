@@ -54,7 +54,7 @@ else {
     navMenuLink[4].setAttribute("href", `./contact.html?user-id=${user.id}`);
     userLink.innerHTML = `<a>Xin chào ${user.name}</a>`
 
-    if (buyProducts != undefined) {
+    if (buyProducts != undefined && buyProducts.length != 0) {
         buyProducts.forEach(buyProduct => {
             cartInfo.innerHTML += `
             
@@ -110,7 +110,7 @@ else {
     else {
         cartInfo.innerHTML +=
             `<div class="empty-cart">
-            Bạn chưa mua gì cả
+            Bạn chưa thêm sản phẩm nào trong giỏ hàng
         </div>`
     }
 }
@@ -125,7 +125,8 @@ deleteCartProductBtns.forEach((btn, index) => {
             newProducts.push(products[i]);
         for(let i = index + 1; i < products.length; i++)
             newProducts.push(products[i]);
-        user["buy-products"] = newProducts;
+        if(newProducts.length = 0) user["buy-products"] = [];
+        else user["buy-products"] = newProducts;
         await updateUser(getParameterByName("user-id"), user);
     }
 
