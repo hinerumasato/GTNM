@@ -1,6 +1,6 @@
 import { getParameterByName, _DATA_URL_ } from "./Utils/utils.js";
-import { getUsers } from "./userData.js";
-import { getProducts } from "./productData.js";
+import { getUsers, updateUser } from "./userData.js";
+import { getProducts, updateProduct } from "./productData.js";
 
 let user = await getUsers(`${_DATA_URL_}/users?id=${getParameterByName("user-id")}`);
 user = user[0];
@@ -58,7 +58,7 @@ else {
         buyProducts.forEach(buyProduct => {
             cartInfo.innerHTML += `
             
-            <div class="cart-item" style="display: flex; width: 100%; gap: 12px">
+            <div class="cart-item" style="display: flex; width: 100%; gap: 12px"}>
                 <div>
                     <img width="120px"
                         src="${buyProduct.image}" />
@@ -74,9 +74,7 @@ else {
                 </div>
         
                 <div>
-                    <a href="https://facebook.com" target="_blank">
-                        <i class="fa fa-trash" aria-hidden="true"></i>
-                    </a>
+                    <i class="fa fa-trash" aria-hidden="true" productId=${buyProduct.id}></i>
                 </div>
             </div> `
         });
@@ -118,6 +116,20 @@ else {
 }
 
 const listBtn = document.querySelector('.mobile-header_info_nav');
+const deleteCartProductBtns = document.querySelectorAll(".fa.fa-trash");
+deleteCartProductBtns.forEach((btn, index) => {
+    const products = user["buy-products"];
+    const newProducts = [];
+    btn.onclick = async () => {
+        for(let i = 0; i < index; i++)
+            newProducts.push(products[i]);
+        for(let i = index + 1; i < products.length; i++)
+            newProducts.push(products[i]);
+        user["buy-products"] = newProducts;
+        await updateUser(getParameterByName("user-id"), user);
+    }
+
+})
 listBtn.onclick = () => {
     const mobileHeaderList = document.querySelector('.mobile-header_info_nav_list');
     mobileHeaderList.classList.toggle('active');

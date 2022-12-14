@@ -47,7 +47,7 @@ body {
     border-bottom: solid 1px #ccc;
     padding: 16px 0;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
 }
 
 .container_header label, input {
@@ -99,4 +99,8 @@ body {
 
 .edit:hover {
     color: #116DFF;
+}
+
+.container_header-wrap {
+    display: flex;
 }
