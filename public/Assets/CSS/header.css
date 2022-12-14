@@ -380,9 +380,14 @@
 }
 
 
-@media only screen and (max-width: 740px) {
+@media only screen and (max-width: 1023px) {
     .mobile-header {
         display: block;
+    }
+
+    .mobile-header_logo_img {
+        width: 263px;
+        height: 74px;
     }
 
     .header-wrap {

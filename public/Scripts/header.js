@@ -52,7 +52,7 @@ else {
     navMenuLink[2].setAttribute("href", `./product.html?user-id=${user.id}`);
     navMenuLink[3].setAttribute("href", `./news.html?user-id=${user.id}`);
     navMenuLink[4].setAttribute("href", `./contact.html?user-id=${user.id}`);
-    userLink.innerHTML = `<a>Xin chào ${user.username}</a>`
+    userLink.innerHTML = `<a>Xin chào ${user.name}</a>`
 
     if (buyProducts != undefined) {
         buyProducts.forEach(buyProduct => {

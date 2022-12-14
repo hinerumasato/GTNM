@@ -14,6 +14,7 @@ function setCharAt(str, index, length, chr) {
 
 
 async function renderItem(itemField, elements, html,...rest) {
+    elements = Array(elements);
     elements.forEach(element => {
         let temp = html;
         for(let key of rest) {
