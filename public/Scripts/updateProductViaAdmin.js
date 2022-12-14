@@ -12,6 +12,7 @@ document.querySelector('.price').value = selectedProduct.price;
 document.querySelector('.image').value = selectedProduct.image;
 document.querySelector('.type').value = selectedProduct.type;
 document.querySelector('#area').value = selectedProduct.description;
+document.querySelector('.color').value = selectedProduct.colors;
 
 updateBtn.onclick = async () => {
     const name = document.querySelector('.name').value;
@@ -19,8 +20,9 @@ updateBtn.onclick = async () => {
     const image = document.querySelector('.image').value;
     const type = document.querySelector('.type').value; 
     const description = document.querySelector('#area').value;
-    await updateProduct(getParameterByName('id'), {name, price, image, type, description});
-    console.log({name, price, image, type, description});
+    const colors = document.querySelector('.color').value.split(",");
+    await updateProduct(getParameterByName('id'), {name, price, image, type, description, colors});
+    console.log({name, price, image, type, description, colors});
     alert("Cập nhật sản phẩm thành công");
     window.location.replace('./admin.html');
 }

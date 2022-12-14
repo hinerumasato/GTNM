@@ -145,8 +145,16 @@ addBtn.onclick = () => {
 const colorOption = document.querySelector("select");
 const productColors = selectedProduct.colors;
 
-productColors.forEach(color => {
+if(productColors == undefined) {
     colorOption.innerHTML += `
-        <option value="${color}">${color}</option>
+        <option value="Đen">Đen</option>
     `
-});
+}
+else {
+    productColors.forEach(color => {
+        colorOption.innerHTML += `
+            <option value="${color}">${color}</option>
+        `
+    });
+}
+

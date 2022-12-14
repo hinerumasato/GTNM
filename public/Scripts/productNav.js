@@ -38,4 +38,4 @@ await renderItem(mobilePopularProduct, products, `
     </li>
 `, "id", "image", "name", "price")
 
-await renderItem()
+// await renderItem()
