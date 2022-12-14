@@ -10,8 +10,34 @@ const userLink = document.querySelector(".user-link");
 const navMenuLink = document.querySelectorAll('.nav_menu-link');
 const cartInfo = document.querySelector(".cart-info");
 const productList = document.querySelector(".product-list")
-console.log(navMenuLink)
 const productTypeSet = new Set();
+
+function formatNumber(str) {
+    let result = "";
+    for(let i = 0; i < str.length; i++)
+        if(str[i] >= '0' && str[i] <= '9')
+            result += str[i];
+    return result;
+}
+
+function splitNumber(number) {
+    let temp = String(number);
+    let result = "";
+    let count = 0;
+
+    while(count < temp.length) {
+        result = temp[temp.length - 1 - count] + result;
+        count++;
+        if(count % 3 == 0 && count != 0) {
+            result = "." + result;
+        }
+    }
+
+    if(count % 3 == 0)
+        result = result.substring(1, result.length);
+
+    return result;
+}
 
 products.forEach(product => {
     productTypeSet.add(product.type.toLowerCase())
@@ -55,7 +81,9 @@ else {
     userLink.innerHTML = `<a>Xin chào ${user.name}</a>`
 
     if (buyProducts != undefined && buyProducts.length != 0) {
+        let sum = 0;
         buyProducts.forEach(buyProduct => {
+            sum += parseInt(formatNumber(buyProduct.price));
             cartInfo.innerHTML += `
             
             <div class="cart-item" style="display: flex; width: 100%; gap: 12px"}>
@@ -86,7 +114,7 @@ else {
         padding-bottom: 16px;
         ">
             <span>Tổng cộng: </span>
-            <span style="color: var(--menu-color); font-weight: bold;">1.200.000đ</span>
+            <span style="color: var(--menu-color); font-weight: bold;">${splitNumber(sum)}đ</span>
         </div>
         <div style="
         display: grid;
@@ -125,8 +153,7 @@ deleteCartProductBtns.forEach((btn, index) => {
             newProducts.push(products[i]);
         for(let i = index + 1; i < products.length; i++)
             newProducts.push(products[i]);
-        if(newProducts.length = 0) user["buy-products"] = [];
-        else user["buy-products"] = newProducts;
+        user["buy-products"] = newProducts;
         await updateUser(getParameterByName("user-id"), user);
     }
 
