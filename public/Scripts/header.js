@@ -169,9 +169,7 @@ listBtn.onclick = () => {
 
 const userId = (user == undefined) ? 0 : user.id;
 
-const searchBtn = document.querySelector('.header_center-search-btn');
-searchBtn.onclick = async () => {
-    const valueSearch = document.querySelector('.header_center-search input').value;
+function search(valueSearch) {
     let queries = window.location.href.split('?')[1];
     if (getParameterByName("search") == undefined) {
         let url = `./product.html?${queries}&search=${valueSearch}`;
@@ -184,7 +182,18 @@ searchBtn.onclick = async () => {
     }
 }
 
+const searchBtn = document.querySelector('.header_center-search-btn');
+const mobileSearchBtn = document.querySelector(".mobile-header_search_btn");
+searchBtn.onclick = async () => {
+    search(document.querySelector('.header_center-search input').value);
+}
+
+mobileSearchBtn.onclick = async () => {
+    search(document.querySelector(".mobile-header_search_input").value);
+}
+
 const input = document.querySelector('.header_center-search input');
+const mobileInput = document.querySelector(".mobile-header_search_input");
 
 input.addEventListener("keypress", (e) => {
     if (e.key == "Enter") {
@@ -192,5 +201,27 @@ input.addEventListener("keypress", (e) => {
         searchBtn.click();
     }
 })
+
+mobileInput.addEventListener("keypress", (e) => {
+    if (e.key == "Enter") {
+        e.preventDefault();
+        mobileSearchBtn.click();
+    }
+})
+
+const mobileHeader = document.querySelector(".mobile-header_wrap");
+document.onscroll = () => {
+    let scrollTop = document.documentElement.scrollTop;
+    if(scrollTop >= 108) {
+        mobileHeader.style.position = "fixed";
+        mobileHeader.style.top = 0;
+        mobileHeader.style.left = 0;
+        mobileHeader.style.right = 0;
+        mobileHeader.style.bottom = 0;
+    }
+    else {
+        mobileHeader.style.position = "relative";
+    }
+}
 
 export { userId };

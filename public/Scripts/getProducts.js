@@ -68,12 +68,20 @@ if (getParameterByName("search") != undefined) {
     notification.classList.add('active');
     if (products.length > 0) {
         notification.style.backgroundColor = "#DFF0D8";
-        notification.innerHTML = `Có <b>${products.length}</b> kết quả tìm kiếm với từ khoá <b>"${getParameterByName("search")}"</b>`
+        notification.innerHTML = `
+            <div>
+                Có <b>${products.length}</b> kết quả tìm kiếm với từ khoá <b>"${getParameterByName("search")}"</b>
+            </div>
+        `
         paginationList.style.display = "none";
     }
     else {
         notification.style.backgroundColor = "#F2DEDE";
-        notification.innerHTML = `Không tìm thấy bất kỳ kết quả với từ khóa: <b>"${getParameterByName("search")}"</b>`;
+        notification.innerHTML = `
+            <div>
+                Không tìm thấy bất kỳ kết quả với từ khóa: <b>"${getParameterByName("search")}"</b>
+            </div>
+        `;
         paginationList.style.display = "none";
     }
 }
