@@ -9,8 +9,9 @@ const products = await getProducts(`${_DATA_URL_}/products`);
 const userLink = document.querySelector(".user-link");
 const navMenuLink = document.querySelectorAll('.nav_menu-link');
 const cartInfo = document.querySelector(".cart-info");
-const productList = document.querySelector(".product-list")
+const productList = document.querySelector(".product-list");
 const productTypeSet = new Set();
+
 
 function formatNumber(str) {
     let result = "";
@@ -210,6 +211,7 @@ mobileInput.addEventListener("keypress", (e) => {
 })
 
 const mobileHeader = document.querySelector(".mobile-header_wrap");
+mobileHeader.style.zIndex = 9999;
 document.onscroll = () => {
     let scrollTop = document.documentElement.scrollTop;
     if(scrollTop >= 108) {
