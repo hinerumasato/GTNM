@@ -13,15 +13,13 @@ signinBtn.onclick = async () => {
     const name          = document.querySelector('.name').value;
     const phoneNumber   = document.querySelector('.phone-number').value;
 
-    console.log({email, password, firstName, name, phoneNumber})
-
     if(!email || !password || !firstName || !name || !phoneNumber) {
         alert("Chưa nhập đủ dữ liệu");
     }
 
     else {
         users.forEach(user => {
-            if(user.username == email) {
+            if(user.email == email) {
                 alert("Email đã có người sử dụng");
                 isUsed = true;
                 return;
@@ -29,11 +27,13 @@ signinBtn.onclick = async () => {
         })
         if(!isUsed) {
             let newUser = {};
+
             newUser.email = email;
             newUser.password = password;
             newUser.firstName = firstName;
             newUser.name = name;
             newUser.phoneNumber = phoneNumber;
+
             pushUsers(newUser);
             alert("Đăng ký thành công");
             window.location.replace("./login.html");

@@ -3,21 +3,28 @@ import { _DATA_URL_ } from "./Utils/utils.js";
 
 const loginBtn = document.querySelector('.login-btn');
 loginBtn.onclick = async () => {
-    let count = 0;
+    let countFailedUsers = 0;
     const users = await getUsers(`${_DATA_URL_}/users`);
     const email = document.querySelector('.email-input').value;
     const password = document.querySelector('.password').value;
 
-    
-    users.forEach(user => {
-        console.log(user.email)
-        if(user.email == email && user.password == password) {
-            window.location.replace(`./index.html?user-id=${user.id}`);
-        }
-        else count++;
-    });
-    if(count == users.length) {
-        alert("Đăng nhập thất bại");
-        window.location.replace("./login.html");
-    } 
+    if(!email || !password) {
+        alert("Chưa nhập đủ thông tin");
+    }
+
+    else {
+        users.forEach(user => {
+            if(user.email == email && user.password == password) {
+                alert("Đăng nhập thành công");
+                window.location.replace(`./index.html?user-id=${user.id}`);
+            }
+            else countFailedUsers++;
+        });
+        
+        if(countFailedUsers == users.length) {
+            alert("Đăng nhập thất bại");
+            window.location.replace("./login.html");
+        } 
+    }
+
 }

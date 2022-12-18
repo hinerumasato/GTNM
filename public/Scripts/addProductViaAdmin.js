@@ -8,6 +8,7 @@ addBtn.onclick = async () => {
     const type = document.querySelector('.type').value; 
     const description = document.querySelector('#area').value;
     const colors = document.querySelector(".color").value.split(",");
+
     await postProducts({name, price, image, type, description, colors});
     console.log({name, price, image, type, description, colors});
     alert("Thêm sản phẩm mới thành công");

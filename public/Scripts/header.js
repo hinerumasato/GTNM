@@ -8,6 +8,7 @@ user = user[0];
 const products = await getProducts(`${_DATA_URL_}/products`);
 const userLink = document.querySelector(".user-link");
 const navMenuLink = document.querySelectorAll('.nav_menu-link');
+const mobileNavMenuLink = document.querySelectorAll('.mobile-header_info_nav_link');
 const cartInfo = document.querySelector(".cart-info");
 const productList = document.querySelector(".product-list");
 const productTypeSet = new Set();
@@ -69,6 +70,12 @@ if (user == undefined) {
     navMenuLink[2].setAttribute("href", `./product.html`);
     navMenuLink[3].setAttribute("href", `./news.html`);
     navMenuLink[4].setAttribute("href", `./contact.html`);
+
+    mobileNavMenuLink[0].setAttribute("href", `./index.html`);
+    mobileNavMenuLink[1].setAttribute("href", `./about-us.html`);
+    mobileNavMenuLink[2].setAttribute("href", `./product.html`);
+    mobileNavMenuLink[3].setAttribute("href", `./news.html`);
+    mobileNavMenuLink[4].setAttribute("href", `./contact.html`);
 }
 
 else {
@@ -79,6 +86,13 @@ else {
     navMenuLink[2].setAttribute("href", `./product.html?user-id=${user.id}`);
     navMenuLink[3].setAttribute("href", `./news.html?user-id=${user.id}`);
     navMenuLink[4].setAttribute("href", `./contact.html?user-id=${user.id}`);
+
+    mobileNavMenuLink[0].setAttribute("href", `./index.html?user-id=${user.id}`);
+    mobileNavMenuLink[1].setAttribute("href", `./about-us.html?user-id=${user.id}`);
+    mobileNavMenuLink[2].setAttribute("href", `./product.html?user-id=${user.id}`);
+    mobileNavMenuLink[3].setAttribute("href", `./news.html?user-id=${user.id}`);
+    mobileNavMenuLink[4].setAttribute("href", `./contact.html?user-id=${user.id}`);
+
     userLink.innerHTML += `
         <a>Xin chào ${user.name}</a>
         <a href="./index.html" style="display: block;">Đăng xuất</a>

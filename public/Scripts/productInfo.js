@@ -6,6 +6,8 @@ import { getUsers, updateUser } from "./userData.js";
 let selectedProduct = await getProducts(`${_DATA_URL_}/products?id=${getParameterByName('product-id')}`);
 selectedProduct = selectedProduct[0];
 
+console.log(selectedProduct);
+
 const productContainerWrap = document.querySelector('.product_container_wrap');
 let html = `
             <div class="product_container_left c-4 m-12">
