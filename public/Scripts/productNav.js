@@ -6,8 +6,16 @@ const popularProduct = document.querySelector(".popular-product-nav-líst");
 const mobilePopularProduct = document.querySelector(".mobile-popular-product-nav-left .popular-product-nav-list");
 const products = await getProducts(`${_DATA_URL_}/products?_limit=${_RENDER_PRODUCT_AMOUNT_}`);
 const productItem1Link = document.querySelectorAll(".product-nav-lists .product-item1 a")
+const productNavItemLink = document.querySelectorAll(".product-nav-item a");
 
-console.log(productItem1Link)
+console.log(productNavItemLink)
+
+productNavItemLink[0].setAttribute("href", `./product.html?search=Bộ sưu tập mới&user-id=${getParameterByName("user-id")}`);
+productNavItemLink[1].setAttribute("href", `./product.html?search=Giày thời trang &user-id=${getParameterByName("user-id")}`);
+productNavItemLink[2].setAttribute("href", `./product.html?search=Giày thời trang nữ&user-id=${getParameterByName("user-id")}`);
+productNavItemLink[3].setAttribute("href", `./product.html?search=Giày mùa &user-id=${getParameterByName("user-id")}`);
+productNavItemLink[4].setAttribute("href", `./product.html?search=Giày công sở&user-id=${getParameterByName("user-id")}`);
+productNavItemLink[5].setAttribute("href", `./product.html?search=Giày thể thao&user-id=${getParameterByName("user-id")}`);
 
 productItem1Link[0].setAttribute("href", `./product.html?search=Giày da&user-id=${getParameterByName("user-id")}`)
 productItem1Link[1].setAttribute("href", `./product.html?search=Giày vải&user-id=${getParameterByName("user-id")}`)

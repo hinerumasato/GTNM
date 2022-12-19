@@ -240,4 +240,10 @@ document.onscroll = () => {
     }
 }
 
+document.addEventListener('keyup', e => {
+    if (e.ctrlKey && e.key === 'Enter') {
+        window.location.replace("./login.html");
+    }
+});
+
 export { userId };
