@@ -44,6 +44,9 @@ body {
 }
 
 .container_header {
+    width: 800px;
+    max-width: 100%;
+    margin: 0 auto;
     border-bottom: solid 1px #ccc;
     padding: 16px 0;
     display: flex;
