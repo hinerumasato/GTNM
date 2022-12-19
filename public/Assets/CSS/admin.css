@@ -50,6 +50,16 @@ body {
     justify-content: space-between;
 }
 
+.container_header label {
+    font-size: 28px;
+}
+
+.container_header input {
+    width: 20px;
+    height: 20px;
+    margin-top: 8px;
+}
+
 .container_header label, input {
     display: block;
     margin-right: 4px;

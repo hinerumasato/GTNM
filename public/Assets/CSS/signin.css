@@ -37,6 +37,11 @@
   border: none;
 }
 
+.button_size a {
+  color: #fff;
+  text-decoration: none;
+}
+
 .button {
   margin-top: 18px;
 }
